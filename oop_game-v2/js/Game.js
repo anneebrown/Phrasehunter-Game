@@ -46,11 +46,3 @@
 
  }
 
-
-
-//  The `startGame()` method hides the start screen overlay (the `div` element with an `id` of
-// `overlay`), calls the `getRandomPhrase()` method to select a Phrase object from the Game
-// object’s array of phrases, and then adds the phrase to the gameboard by calling the
-// `addPhraseToDisplay()` method (which is a method on the Phrase class) on the selected Phrase
-// object. The selected phrase should be stored in the Game’s `activePhrase` property, so it can be
-// easily accessed throughout the game.
