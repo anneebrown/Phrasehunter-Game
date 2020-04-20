@@ -48,6 +48,7 @@
 won
 */
     checkForWin() {
+        //gets an array of all elements that still have a hide class, if the length of that array is 0, the game has been won
         let winCondition = document.getElementsByClassName('hide');
         console.log(winCondition);
         if (winCondition.length > 0){
