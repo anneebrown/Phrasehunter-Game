@@ -48,7 +48,14 @@
 won
 */
     checkForWin() {
-        
+        let winCondition = document.getElementsByClassName('hide');
+        console.log(winCondition);
+        if (winCondition.length > 0){
+            return false;
+        } else {
+            return true;
+        }
+
     };
 
  }
@@ -67,3 +74,6 @@ won
 // depending on the outcome of the game, updates the overlay `h1` element with a
 // friendly win or loss message, and replaces the overlay’s `start` CSS class with
 // either the `win` or `lose` CSS class.
+
+//check for win: get elementsbyclassname
+//if the array length is over 0, game has not been won
