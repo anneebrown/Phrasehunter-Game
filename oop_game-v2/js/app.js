@@ -2,50 +2,24 @@
  * Project 4 - OOP Game App
  * app.js */
 //I used the project guide to help me with my code
-//the commented out portion is the test code to verify at each step that the added code works
-
-// const phrase = new Phrase('Life is like a box of chocolates');
-// console.log(`Phrase - phrase: ${phrase.phrase}`);
-
-// const game = new Game();
-// game.phrases.forEach((phrase, index) => {
-// console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-// });
-
-// const logPhrase = (phrase) => {
-//     console.log(`Phrase - phrase: `, phrase.phrase);
-//     };
-//     const game = new Game();
-//     logPhrase(game.getRandomPhrase());
-//     logPhrase(game.getRandomPhrase());
-//     logPhrase(game.getRandomPhrase());
-//     logPhrase(game.getRandomPhrase());
-//     logPhrase(game.getRandomPhrase());
-
-// const game = new Game();
-// const randomPhrase = game.getRandomPhrase();
-// const phrase = new Phrase(randomPhrase.phrase);
-// phrase.addPhraseToDisplay();
-
-// const game = new Game();
-// game.getRandomPhrase().addPhraseToDisplay();
-
-// const game = new Game();
-// game.startGame();
-// console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
-
 let game; 
 document.getElementById('btn__reset').addEventListener('click', (event) => {
     game = new Game(); 
     game.startGame();
 });
 
+//gets an array of buttons 
+let keyButtons = document.getElementsByClassName('key');
+//keyButtonsSliced = keyButtons.slice(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25);
+console.log(keyButtons);
 
-// Now that you’ve built the basics, head over to the app.js file. This is where you’ll create an
-// event listener for the "Start Game" button that the user sees when they load your Phrase
-// Hunter game.
-// ● Inside the app.js file, declare a new variable called `game` that’s not set to anything.
-// ● Then, add a "click" event listener to the HTML `<button>` element with an `id` of
-// `btn__reset`. Inside the callback function for this click event listener, use your `game`
-// variable to instantiate a new Game object. Call the `startGame()` method on this new
-// Game object.
+// let aButton = keyButtons.filter(keyButton => keyButton.innerText = 'a');
+// console.log(aButton);
+
+for (let i= 0; i < keyButtons.length; i+= 1){
+keyButtons[i].addEventListener('click', (event) => {
+    //console.log(event.target.textContent);
+    game.handleInteraction(keyButtons[i]);
+});
+};
+

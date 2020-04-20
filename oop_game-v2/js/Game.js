@@ -59,22 +59,79 @@ won
 
     };
 
+/**
+* Increases the value of the missed property
+* Removes a life from the scoreboard
+* Checks if player has remaining lives and ends game if player is out
+*/
+    removeLife(){
+        let pictureElement = document.getElementsByClassName('tries');
+        this.missed += 1;
+        console.log(this.missed);
+        if(this.missed == 1){
+            pictureElement[0].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+        }
+        if(this.missed == 2){
+            pictureElement[1].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+        }
+        if(this.missed == 3){
+            pictureElement[2].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+        }
+        if(this.missed == 4){
+            pictureElement[3].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+        }
+        if (this.missed == 5){
+            pictureElement[4].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            this.gameOver(false);
+        }
+    }
+
+/**
+* Displays game over message
+* @param {boolean} gameWon - Whether or not the user won the game
+*/
+    gameOver(gameWon){
+        let startOverlay = document.getElementById('overlay');
+        startOverlay.style.display = 'block';
+        let gameOverMessage = document.getElementById('game-over-message');
+        if (!gameWon){
+            gameOverMessage.textContent = "Sorry, you\'re out of tries";
+            startOverlay.className = 'lose';
+        } else {
+            gameOverMessage.textContent = "YAY, you win! Great job!";
+            startOverlay.className = 'win';
+        }
+    }
+
+/**
+* Handles onscreen keyboard button clicks
+* @param (HTMLButtonElement) button - The clicked button element
+*/
+    handleInteraction(button){
+        console.log(button);
+        if(!this.activePhrase.checkLetter()) {
+            button.disabled = true;
+            button.className = 'wrong';
+            this.removeLife();
+        }
+        if(this.activePhrase.checkLetter()) {
+            button.disabled = true;
+            button.className = 'chosen';
+            this.activePhrase.showMatchedLetter(button.textContent);
+            if(this.checkForWin()){
+                this.gameOver(true);
+            }
+        }
+    }
  }
 
 
+//  If the phrase does not include the guessed letter, add the `wrong` CSS class to the
+// selected letter's keyboard button and call the `removeLife()` method.
+// ● If the phrase includes the guessed letter, add the `chosen` CSS class to the selected
+// letter's keyboard button, call the `showMatchedLetter()` method on the phrase, and then
+// call the `checkForWin()` method. If the player has won the game, also call the
+// `gameOver()` method.
 
-//  Game class methods
-// ○ `checkForWin()`: This method checks to see if the player has revealed all of the
-// letters in the active phrase.
-// ○ `removeLife()`: This method removes a life from the scoreboard, by replacing one
-// of the `liveHeart.png` images with a `lostHeart.png` image (found in the `images`
-// folder) and increments the `missed` property. If the player has five missed
-// guesses (i.e they're out of lives), then end the game by calling the `gameOver()`
-// method.
-// ○ `gameOver()`: This method displays the original start screen overlay, and
-// depending on the outcome of the game, updates the overlay `h1` element with a
-// friendly win or loss message, and replaces the overlay’s `start` CSS class with
-// either the `win` or `lose` CSS class.
 
-//check for win: get elementsbyclassname
-//if the array length is over 0, game has not been won
+
