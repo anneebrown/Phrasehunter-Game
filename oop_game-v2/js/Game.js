@@ -14,11 +14,11 @@
 * @return {array} An array of phrases that could be used in the game
 */
     createPhrases(){
-       this.phrases = [new Phrase('Trubbish is the best pokemon'), 
-                       new Phrase('Santa is real'), 
-                       new Phrase('Cosmic crisp apples are a new variety'), 
-                       new Phrase('Blackened ranch is the best sauce at popeyes'), 
-                       new Phrase('Javascript is great')];
+        this.phrases = [new Phrase({name: 'Trubbish is the best pokemon'}), 
+                        new Phrase({name: 'Santa is real'}), 
+                        new Phrase({name: 'Cosmic crisp apples are a new variety'}), 
+                        new Phrase({name: 'Blackened ranch is the best sauce at popeyes'}), 
+                        new Phrase({name: 'Javascript is great'})];
        return this.phrases;
     }
 
@@ -97,9 +97,31 @@ won
         if (!gameWon){
             gameOverMessage.textContent = "Sorry, you\'re out of tries";
             startOverlay.className = 'lose';
+            let ulElement = document.getElementById('phrase').firstElementChild;
+            ulElement.innerHTML = '';
+            let keyBoardButtons = document.getElementsByTagName('button'); 
+            for (let i = 0; i <keyBoardButtons.length; i++){
+                keyBoardButtons[i].className = 'key';
+                keyBoardButtons[i].disabled = false;
+            }
+            let pictureElement = document.getElementsByClassName('tries');
+            for (let j = 0; j < pictureElement.length; j++){
+                pictureElement[j].firstElementChild.setAttribute('src', 'images/liveHeart.png');
+            }
         } else {
             gameOverMessage.textContent = "YAY, you win! Great job!";
             startOverlay.className = 'win';
+            let ulElement = document.getElementById('phrase').firstElementChild;
+            ulElement.innerHTML = '';
+            let keyBoardButtons = document.getElementsByTagName('button'); 
+            for (let i = 0; i <keyBoardButtons.length; i++){
+                keyBoardButtons[i].className = 'key';
+                keyBoardButtons[i].disabled = false;
+            }
+            let pictureElement = document.getElementsByClassName('tries');
+            for (let j = 0; j < pictureElement.length; j++){
+                pictureElement[j].firstElementChild.setAttribute('src', 'images/liveHeart.png');
+            }
         }
     }
 
@@ -109,12 +131,12 @@ won
 */
     handleInteraction(button){
         console.log(button);
-        if(!this.activePhrase.checkLetter()) {
+        if(!this.activePhrase.checkLetter(button.textContent)) {
             button.disabled = true;
             button.className = 'wrong';
             this.removeLife();
         }
-        if(this.activePhrase.checkLetter()) {
+        if(this.activePhrase.checkLetter(button.textContent)) {
             button.disabled = true;
             button.className = 'chosen';
             this.activePhrase.showMatchedLetter(button.textContent);
@@ -126,12 +148,16 @@ won
  }
 
 
-//  If the phrase does not include the guessed letter, add the `wrong` CSS class to the
-// selected letter's keyboard button and call the `removeLife()` method.
-// ● If the phrase includes the guessed letter, add the `chosen` CSS class to the selected
-// letter's keyboard button, call the `showMatchedLetter()` method on the phrase, and then
-// call the `checkForWin()` method. If the player has won the game, also call the
-// `gameOver()` method.
+
+
+//  Update your app to reset the gameboard between games. After a game is completed, the
+// gameboard needs to be reset so that clicking the "Start Game" button will successfully load a
+// new game.
+// ● Remove all `li` elements from the Phrase `ul` element.
+// ● Enable all of the onscreen keyboard buttons and update each to use the `key` CSS class,
+// and not use the `chosen` or `wrong` CSS classes.
+// ● Reset all of the heart images (i.e. the player's lives) in the scoreboard at the bottom of
+// the gameboard to display the `liveHeart.png` image.
 
 
 
