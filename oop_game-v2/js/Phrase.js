@@ -58,7 +58,7 @@ class Phrase {
 */
     showMatchedLetter(letter) {
         let match = document.getElementsByClassName(`hide letter ${letter}`);
-        console.log(match);
+        //console.log(match);
         //I got the idea to go backwards in the loop here to avoid only applying the new class to every other element: https://stackoverflow.com/questions/1457544/javascript-loop-only-applying-to-every-other-element
         for (let i = match.length-1; i > -1; i -= 1){
             match[i].className = 'show';

@@ -11,13 +11,16 @@ document.getElementById('btn__reset').addEventListener('click', (event) => {
 //gets an array of buttons 
 let keyButtons = document.getElementById('qwerty');
 
+//event listener for on screen buttons
 keyButtons.addEventListener('click', (event) => {
     if (event.target.tagName === 'BUTTON') {
     game.handleInteraction(event.target);
     }
+    //console.log(event.target);
 });
 
-
-// document.addEventListener('keyup', keyButtons, (event) => {
-//     game.handleInteraction(event.target);
+//event listener for keyboard buttons
+// document.addEventListener('keydown', (event) => {
+//    game.handleInteraction(event.key);
+//    console.log(event.key);
 // });

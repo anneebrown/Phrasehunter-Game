@@ -50,7 +50,7 @@ won
     checkForWin() {
         //gets an array of all elements that still have a hide class, if the length of that array is 0, the game has been won
         let winCondition = document.getElementsByClassName('hide');
-        console.log(winCondition);
+        //console.log(winCondition);
         if (winCondition.length > 0){
             return false;
         } else {
@@ -67,21 +67,21 @@ won
     removeLife(){
         let pictureElement = document.getElementsByClassName('tries');
         this.missed += 1;
-        console.log(this.missed);
+        //console.log(this.missed);
         if(this.missed == 1){
-            pictureElement[0].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[4].firstElementChild.setAttribute('src', 'images/lostHeart.png');
         }
         if(this.missed == 2){
-            pictureElement[1].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[3].firstElementChild.setAttribute('src', 'images/lostHeart.png');
         }
         if(this.missed == 3){
             pictureElement[2].firstElementChild.setAttribute('src', 'images/lostHeart.png');
         }
         if(this.missed == 4){
-            pictureElement[3].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[1].firstElementChild.setAttribute('src', 'images/lostHeart.png');
         }
         if (this.missed == 5){
-            pictureElement[4].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[0].firstElementChild.setAttribute('src', 'images/lostHeart.png');
             this.gameOver(false);
         }
     }
@@ -130,7 +130,7 @@ won
 * @param (HTMLButtonElement) button - The clicked button element
 */
     handleInteraction(button){
-        console.log(button);
+        //console.log(button);
         if(!this.activePhrase.checkLetter(button.textContent)) {
             button.disabled = true;
             button.className = 'wrong';
@@ -145,19 +145,35 @@ won
             }
         }
     }
+
+/**
+* Handles keyboard button presses
+* @param (keyboard button) button - The pressed button element
+*/
+    // handleInteractionKeyBoard(button){
+    //     //console.log(button);
+    //     if(!this.activePhrase.checkLetter(button)) {
+    //         let keyBoardButtons = document.getElementById('qwerty').firstElementChild.firstElementChild;
+    //             if (button.value == keyBoardButtons.textContent){
+    //                 keyBoardButtons.disabled = true;
+    //                 keyBoardButtons.className = 'wrong';
+    //             }
+    //         this.removeLife();
+    //     }
+    //     if(this.activePhrase.checkLetter(button)) {
+    //         let keyBoardButtons = document.getElementById('qwerty').firstElementChild.firstElementChild;
+    //             if (button.value == keyBoardButtons.textContent){
+    //                 keyBoardButtons.disabled = true;
+    //                 keyBoardButtons.className = 'chosen';
+    //             }
+            
+    //         this.activePhrase.showMatchedLetter(button);
+    //         if(this.checkForWin()){
+    //             this.gameOver(true);
+    //         }
+    //     }
+    // }
  }
-
-
-
-
-//  Update your app to reset the gameboard between games. After a game is completed, the
-// gameboard needs to be reset so that clicking the "Start Game" button will successfully load a
-// new game.
-// ● Remove all `li` elements from the Phrase `ul` element.
-// ● Enable all of the onscreen keyboard buttons and update each to use the `key` CSS class,
-// and not use the `chosen` or `wrong` CSS classes.
-// ● Reset all of the heart images (i.e. the player's lives) in the scoreboard at the bottom of
-// the gameboard to display the `liveHeart.png` image.
 
 
 
