@@ -95,6 +95,7 @@ won
         startOverlay.style.display = 'block';
         let gameOverMessage = document.getElementById('game-over-message');
         if (!gameWon){
+            startOverlay.style.backgroundImage = "url('images/pamcrying.gif')";
             gameOverMessage.textContent = "Sorry, you\'re out of tries";
             startOverlay.className = 'lose';
             let ulElement = document.getElementById('phrase').firstElementChild;
@@ -109,6 +110,7 @@ won
                 pictureElement[j].firstElementChild.setAttribute('src', 'images/liveHeart.png');
             }
         } else {
+            startOverlay.style.backgroundImage = "url('images/rickastleydancing.gif')";
             gameOverMessage.textContent = "YAY, you win! Great job!";
             startOverlay.className = 'win';
             let ulElement = document.getElementById('phrase').firstElementChild;

@@ -2,6 +2,12 @@
  * Project 4 - OOP Game App
  * app.js */
 //I used the project guide to help me with my code
+let startOverlay = document.getElementById('overlay');
+startOverlay.addEventListener("load", (e)=> {
+    startOverlay.style.backgroundImage = "url('images/math.gif')";
+})
+
+
 let game; 
 document.getElementById('btn__reset').addEventListener('click', (event) => {
     game = new Game(); 
