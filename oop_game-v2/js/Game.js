@@ -18,7 +18,9 @@
                         new Phrase({name: 'Santa is real'}), 
                         new Phrase({name: 'Cosmic crisp apples are a new variety'}), 
                         new Phrase({name: 'Blackened ranch is the best sauce at popeyes'}), 
-                        new Phrase({name: 'Javascript is great'})];
+                        new Phrase({name: 'Javascript is great'}),
+                        new Phrase({name: 'Der Apfel fällt nicht weit vom Stamm'}),
+                        new Phrase({name: 'Die Gläser füllen'})];
        return this.phrases;
     }
 
