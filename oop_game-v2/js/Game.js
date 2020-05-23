@@ -71,19 +71,19 @@ won
         this.missed += 1;
         //console.log(this.missed);
         if(this.missed == 1){
-            pictureElement[4].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[4].firstElementChild.setAttribute('src', 'oop_game-v2/images/lostHeart.png');
         }
         if(this.missed == 2){
-            pictureElement[3].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[3].firstElementChild.setAttribute('src', 'oop_game-v2/images/lostHeart.png');
         }
         if(this.missed == 3){
-            pictureElement[2].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[2].firstElementChild.setAttribute('src', 'oop_game-v2/images/lostHeart.png');
         }
         if(this.missed == 4){
-            pictureElement[1].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[1].firstElementChild.setAttribute('src', 'oop_game-v2/images/lostHeart.png');
         }
         if (this.missed == 5){
-            pictureElement[0].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+            pictureElement[0].firstElementChild.setAttribute('src', 'oop_game-v2/images/lostHeart.png');
             this.gameOver(false);
         }
     }
@@ -97,7 +97,7 @@ won
         startOverlay.style.display = 'block';
         let gameOverMessage = document.getElementById('game-over-message');
         if (!gameWon){
-            startOverlay.style.backgroundImage = "url('images/pamcrying.gif')";
+            startOverlay.style.backgroundImage = "url('oop_game-v2/images/pamcrying.gif')";
             gameOverMessage.textContent = "Sorry, you\'re out of tries";
             startOverlay.className = 'lose';
             let ulElement = document.getElementById('phrase').firstElementChild;
@@ -109,10 +109,10 @@ won
             }
             let pictureElement = document.getElementsByClassName('tries');
             for (let j = 0; j < pictureElement.length; j++){
-                pictureElement[j].firstElementChild.setAttribute('src', 'images/liveHeart.png');
+                pictureElement[j].firstElementChild.setAttribute('src', 'oop_game-v2/images/liveHeart.png');
             }
         } else {
-            startOverlay.style.backgroundImage = "url('images/rickastleydancing.gif')";
+            startOverlay.style.backgroundImage = "url('oop_game-v2/images/rickastleydancing.gif')";
             gameOverMessage.textContent = "YAY, you win! Great job!";
             startOverlay.className = 'win';
             let ulElement = document.getElementById('phrase').firstElementChild;
@@ -124,7 +124,7 @@ won
             }
             let pictureElement = document.getElementsByClassName('tries');
             for (let j = 0; j < pictureElement.length; j++){
-                pictureElement[j].firstElementChild.setAttribute('src', 'images/liveHeart.png');
+                pictureElement[j].firstElementChild.setAttribute('src', 'oop_game-v2/images/liveHeart.png');
             }
         }
     }

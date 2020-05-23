@@ -4,7 +4,7 @@
 //I used the project guide to help me with my code
 let startOverlay = document.getElementById('overlay');
 startOverlay.addEventListener("load", (e)=> {
-    startOverlay.style.backgroundImage = "url('images/math.gif')";
+    startOverlay.style.backgroundImage = "url('oop_game-v2/images/math.gif')";
 })
 
 
